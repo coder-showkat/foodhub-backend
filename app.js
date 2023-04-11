@@ -24,9 +24,9 @@ app.get("/meals", (req, res) => {
 
     if (page && limit) {
     displayMeals = displayMeals.slice((page * limit) - limit, page * limit);  
-    } else if (page && limit === false) {
+    } else if (!limit && page) {
         displayMeals = displayMeals.slice((page * 9 )- 9, page * 9);
-    } else if (page === false && limit) {
+    } else if (!page && limit) {
         displayMeals = displayMeals.slice(0, limit);
     } else if (!page && !limit) {
         displayMeals = displayMeals.slice(0, 100);
